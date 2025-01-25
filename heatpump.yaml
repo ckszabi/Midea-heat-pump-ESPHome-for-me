@@ -44,10 +44,10 @@ esphome:
     name: "${devicename}.${description}"
     version: 5.1.0
 
-esp32:
-  board: esp32dev
+esp8266:
+  board: nodemcuv3
   framework:
-    type: esp-idf
+    version: recommended
 
 # Enable logging
 logger:
@@ -74,13 +74,13 @@ captive_portal:
 
 uart:
   id: mod_bus
-  tx_pin: 17
-  rx_pin: 16
+  tx_pin: GPIO14
+  rx_pin: GPIO13
   baud_rate: 9600
   stop_bits: 1
 
 modbus:
-  flow_control_pin: 5
+  flow_control_pin: GPIO12
   id: heatpump_modbus
 
 modbus_controller:
