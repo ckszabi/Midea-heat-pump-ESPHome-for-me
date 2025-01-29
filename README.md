@@ -29,6 +29,24 @@ When all is connected, place the back panel of the display back and put back the
 
 Place the content of the file [heatpump.yaml](heatpump.yaml) in your ESPHome device and change the `uart` and `modbus_controller` settings to your needs. The `substitutions` section can be used to change the entities name as they apear in Home Assistant. In the [homeassistant](homeassistant) directory I placed and example dashboard and some example automations.
 
+## Compile
+
+If compilation fails via the Home Assistant ESP Home Builder addon then local machine (Windows) installation can help. 
+* Install esphome on machine
+* in command line execute
+  ```
+  esphome run heatpump.yaml
+  ```
+* I did encounter compile issues with the latest ESPHome. To curcumvent that I've added/changed the platform to
+```
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+    version: 4.4.8
+    platform_version: 5.4.0
+```
+
 ## ESPHome Midea Heatpump Controller
 
 Together with my son [Sven](https://svenar.nl) who is an electronics student, we created an ESPHome compatible heatpump controller for the Midea heatpump (and clones). This controller can be purchased from https://shop.svenar.nl
